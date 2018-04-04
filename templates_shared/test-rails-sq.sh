@@ -3,9 +3,6 @@
 # This script creates a basic Rails app that uses an SQLite database.
 # PURPOSE: Provide confirmation that Ruby on Rails is properly set up.
 
-# Just making sure Ruby, Rails, and Node are working as expected.
-sh /home/winner/shared/info.sh
-
 # This is the same test app as the one at http://elinux.org/RPi_Ruby_on_Rails .
 cd /home/winner/shared && rails new school_sq --skip-spring
 cd /home/winner/shared/school_sq && rails g scaffold Pupil name:string form:string

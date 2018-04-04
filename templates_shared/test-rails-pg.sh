@@ -10,9 +10,6 @@ APP_DB_NAME=database1
 APP_DB_USER=user1
 APP_DB_PASS=password1
 
-# Just making sure Ruby, Rails, and Node are working as expected.
-sh /home/winner/shared/info.sh
-
 # This is the same test app as the one at http://elinux.org/RPi_Ruby_on_Rails 
 # but with PostgreSQL instead of SQLite.
 

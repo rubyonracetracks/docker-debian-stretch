@@ -2,8 +2,6 @@
 
 # This script tests your Jekyll installation.
 
-sh /home/winner/shared/info.sh
-
 jekyll new my-awesome-site
 cat /home/winner/shared/ports.txt
 echo '**********************'
