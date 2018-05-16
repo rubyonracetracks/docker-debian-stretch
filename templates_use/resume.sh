@@ -6,8 +6,6 @@ if [ ! $( id -u ) -ne 0 ]; then
   exit 2
 fi
 
-DOCKER_IMAGE=<DOCKER_IMAGE>
-
 CONTAINER='<CONTAINER>'
 
 echo '******'
@@ -21,11 +19,7 @@ echo 'to the other.  Running the tmux tool inside the Docker container provides'
 echo 'multi-shell access to the same container.'
 echo
 
-id_container=$(docker ps -l -q --filter=image=${DOCKER_IMAGE})
-
 DATE=`date +%Y_%m%d_%H%M`
-
-docker commit -m $DATE $id_container $DOCKER_IMAGE:$CONTAINER
 
 is='/bin/bash' # Initial script to run
 hs=$PWD/shared # Host machine shared directory
