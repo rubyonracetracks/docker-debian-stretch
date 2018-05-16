@@ -1,16 +1,25 @@
 #!/bin/bash
 
-DOCKER_IMAGE=$1
 CONTAINER='<CONTAINER>'
 
-echo '------------------------------------------'
-echo "Removing containers based on $DOCKER_IMAGE"
-for i in $(docker ps -a | grep $DOCKER_IMAGE | grep $CONTAINER | awk '{print $1}')
+echo '-------------------------------'
+echo "docker ps -a | grep $CONTAINER"
+docker ps -a | grep $CONTAINER
+
+echo '++++++++++++++++++++++++++'
+echo 'Removing Docker containers'
+for i in $(docker ps -a | grep $CONTAINER | awk '{print $1}')
 do
-  docker kill $i; wait;
-  docker rm -f $i; wait;
+  echo '--------------'
+  echo "docker kill $i"
+  docker kill $i
+  wait
+  echo '---------------'
+  echo "docker rm -f $i"
+  docker rm -f $i
+  wait
 done;
 
-echo '---------------------------------'
-echo "docker ps -a | grep $DOCKER_IMAGE"
-docker ps -a | grep $DOCKER_IMAGE
+echo '-------------------------------'
+echo 'docker ps -a | grep <CONTAINER>'
+docker ps -a | grep <CONTAINER>

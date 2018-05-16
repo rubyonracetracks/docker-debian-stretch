@@ -2,7 +2,13 @@
 
 DOCKER_IMAGE=$1
 
-sh remove_containers.sh $DOCKER_IMAGE
+echo '------------------------------------------'
+echo "Removing containers based on $DOCKER_IMAGE"
+for i in $(docker ps -a | grep $DOCKER_IMAGE | awk '{print $1}')
+do
+  docker kill $i; wait;
+  docker rm -f $i; wait;
+done;
 
 echo '--------------------------------'
 echo "Removing images of $DOCKER_IMAGE"

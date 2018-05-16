@@ -17,7 +17,7 @@ echo 'An alternative is to use the download_new_image.sh script to'
 echo 'acquire it.'
 echo '***********'
 
-sh remove_containers.sh $DOCKER_IMAGE
+sh remove_containers.sh
 sh remove_image.sh $DOCKER_IMAGE
 
 cat $TGZ_FILE | docker import - $DOCKER_IMAGE
