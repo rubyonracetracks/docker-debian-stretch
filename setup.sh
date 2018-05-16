@@ -53,7 +53,7 @@ then
   cp templates_shared/test-jekyll.sh $ABBREV/shared
 elif [[ "$ABBREV" =~ 'react' ]]
 then
-  echo ''
+  cp templates_shared/test-react.sh $ABBREV/shared
 fi
 
 # Fill in DOCKER_IMAGE and CONTAINER parameters
