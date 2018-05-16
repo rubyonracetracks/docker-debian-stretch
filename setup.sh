@@ -51,6 +51,9 @@ then
 elif [[ "$ABBREV" =~ 'jekyll' ]]
 then
   cp templates_shared/test-jekyll.sh $ABBREV/shared
+elif [[ "$ABBREV" =~ 'react' ]]
+then
+  echo ''
 fi
 
 # Fill in DOCKER_IMAGE and CONTAINER parameters
@@ -72,6 +75,15 @@ for FILE in `ls $ABBREV/shared/*.sh`
 do
   fill_in_params $FILE
 done
+
+# Update info.sh
+if [[ "$ABBREV" =~ 'react' ]]
+then
+  # Based on dev image
+  sed -i.bak "s|$ABBREV|dev|g" $ABBREV/shared/info.sh
+  rm $ABBREV/shared/info.sh.bak
+fi
+
 
 # Provide port numbers in shared/ports.txt file
 # Provide port numbers in copy_new.sh
